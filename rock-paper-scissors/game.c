@@ -7,9 +7,9 @@ int snakeWaterGun(char you, char comp)
     // returns 1 if you win, -1 if you lose and 0 if draw
     // Condition for draw
     // Cases covered:
+    // rr
+    // pp
     // ss
-    // gg
-    // ww
     if (you == comp)
     {
         return 0;
@@ -17,36 +17,36 @@ int snakeWaterGun(char you, char comp)
 
     // Non-draw conditions
     // Cases covered:
-    // sg
-    // gs
-    // sw
-    // ws
-    // gw
-    // wg
+    // rp
+    // pr
+    // rs
+    // sr
+    // ps
+    // sp
 
-    if (you == 's' && comp == 'g')
+    if (you == 'r' && comp == 'p')
     {
         return -1;
     }
-    else if (you == 'g' && comp == 's')
+    else if (you == 'p' && comp == 'r')
     {
         return 1;
     }
 
-    if (you == 's' && comp == 'w')
+    if (you == 'r' && comp == 's')
     {
         return 1;
     }
-    else if (you == 'w' && comp == 's')
+    else if (you == 's' && comp == 'r')
     {
         return -1;
     }
 
-    if (you == 'g' && comp == 'w')
+    if (you == 'p' && comp == 's')
     {
         return -1;
     }
-    else if (you == 'w' && comp == 'g')
+    else if (you == 's' && comp == 'p')
     {
         return 1;
     }
@@ -59,18 +59,18 @@ int main()
 
     if (number < 33)
     {
-        comp = 's';
+        comp = 'r';
     }
     else if (number > 33 && number < 66)
     {
-        comp = 'w';
+        comp = 'p';
     }
     else
     {
-        comp = 'g';
+        comp = 's';
     }
 
-    printf("Enter 's' for snake, 'w' for water and 'g' for gun\n");
+    printf("Enter 'r' for rock, 'p' for paper and 's' for scissor\n");
     scanf("%c", &you);
     int result = snakeWaterGun(you, comp);
     if (result == 0)
